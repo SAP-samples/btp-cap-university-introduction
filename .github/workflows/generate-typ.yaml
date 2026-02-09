@@ -1,0 +1,23 @@
+name: Generate typ exercise
+on:
+  release:
+    types: [released]
+
+jobs:
+  generate-typ:
+    runs-on: ubuntu-latest
+    permissions:
+      # Required to request the OIDC JWT Token
+      id-token: write
+      # Required when GH token is used to authenticate with private repo
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: typst-community/setup-typst@v4
+      - name: Build typ exercise
+        run: typst compile exercise.typ exercise.pdf --input version=${{ github.event.release.tag_name }}
+      - name: Upload PDF
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload ${{ github.event.release.tag_name }} exercise.pdf
