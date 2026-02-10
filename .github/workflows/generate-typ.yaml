@@ -17,7 +17,9 @@ jobs:
       - uses: typst-community/setup-typst@v4
       - name: Build typ exercise
         run: typst compile exercise.typ exercise.pdf --input version=${{ github.event.release.tag_name }}
+      - name: Build typ exercise
+        run: typst compile presentation.typ presentation.pdf --input version=${{ github.event.release.tag_name }}
       - name: Upload PDF
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release upload ${{ github.event.release.tag_name }} exercise.pdf
+        run: gh release upload ${{ github.event.release.tag_name }} exercise.pdf presentation.pdf
