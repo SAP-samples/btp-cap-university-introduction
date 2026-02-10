@@ -100,7 +100,9 @@
   #v(3em)
 
   #align(center)[
-    #image("files/presentation/btp-hyperscaler-overview.svg", height: 75%)
+    #block(fill: white, radius: 8pt, inset: 8pt)[
+      #image("files/presentation/btp-hyperscaler-overview.svg", height: 70%)
+    ]
   ]
 ]
 
@@ -110,7 +112,9 @@
   #v(3em)
 
   #align(center)[
-    #image("files/presentation/btp-organization-overview.svg", height: 75%)
+    #block(fill: white, radius: 8pt, inset: 8pt)[
+      #image("files/presentation/btp-organization-overview.svg", height: 70%)
+    ]
   ]
 ]
 
@@ -134,7 +138,7 @@
   )
 ]
 
-== App Dev & Automation Services
+== SAP BTP App Dev & Automation Cloud Services
 
 #slide[
   #v(3em)
@@ -144,11 +148,53 @@
   ]
 ]
 
+== SAP BTP Data and Analytics Cloud Services
+
+#slide[
+  #v(3em)
+
+  #align(center)[
+    #image("files/presentation/btp-data-and-analytics.svg", height: 75%)
+  ]
+]
+
+== SAP BTP Integration Cloud Services
+
+#slide[
+  #v(3em)
+
+  #align(center)[
+    #image("files/presentation/btp-integration-cloud-services.svg", height: 75%)
+  ]
+]
+
+== SAP BTP AI Cloud Services
+
+#slide[
+  #v(3em)
+
+  #align(center)[
+    #image("files/presentation/btp-ai-cloud-service.svg", height: 75%)
+  ]
+]
+
+== SAP BTP Platform Foundation Cloud Services
+
+#slide[
+  #v(3em)
+
+  #align(center)[
+    #image("files/presentation/btp-platform-foundation-cloud-services.svg", height: 75%)
+  ]
+]
+
 == BTP Sample Architecture using CAP
 
 #slide[
+  #v(3em)
+
   #align(center)[
-    #image("files/presentation/cap-framework.png", height: 85%)
+    #image("files/presentation/btp-sample-architecture.svg", height: 85%)
   ]
 ]
 
