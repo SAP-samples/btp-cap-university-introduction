@@ -87,7 +87,7 @@
         #block(
           clip: true,
           radius: 8pt,
-          image("files/presentation/btp-cockpit-demo.png", width: 200pt, height: 100%),
+          image("files/presentation/btp-cockpit-demo.png", width: 200pt, height: 90%),
         )
       ]
     ],

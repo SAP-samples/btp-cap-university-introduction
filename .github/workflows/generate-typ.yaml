@@ -18,7 +18,7 @@ jobs:
       - name: Build typ exercise
         run: typst compile exercise.typ exercise.pdf --input version=${{ github.event.release.tag_name }}
       - name: Build typ exercise
-        run: typst compile presentation.typ presentation.pdf --input version=${{ github.event.release.tag_name }}
+        run: typst compile --font-path files/fonts/ presentation.typ presentation.pdf --input version=${{ github.event.release.tag_name }}
       - name: Upload PDF
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

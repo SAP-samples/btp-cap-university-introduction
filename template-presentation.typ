@@ -110,8 +110,9 @@
   // Page margins
   set page(margin: (x: 2.5em, top: 5em, bottom: 2em))
 
-  // Typography - SAP fonts with fallbacks
-  set text(font: ("SAP 72", "Segoe UI", "Helvetica Neue", "Arial"), size: 18pt)
+  // Typography - SAP 72 fonts with fallbacks
+  // Note: When compiling, use: typst compile --font-path files/fonts/ your-file.typ
+  set text(font: "72", size: 18pt)
   show link: underline
 
   // Code block styling - inline
