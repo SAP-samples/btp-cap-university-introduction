@@ -3,6 +3,7 @@
 {
   "name": "CAP University Exercise Dev Container",
   "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+  "postCreateCommand": "npm install -g @sap/cds-dk",
   "portsAttributes": {
     "4004": {
       "label": "CAP server",
@@ -17,7 +18,8 @@
         "qwtel.sqlite-viewer",
         "humao.rest-client",
         "dbaeumer.vscode-eslint",
-        "SAPOSS.vscode-cf-tools"
+        "SAPOSS.vscode-cf-tools",
+        "SAPSE.sap-ux-fiori-tools-extension-pack"
       ]
     }
   }
