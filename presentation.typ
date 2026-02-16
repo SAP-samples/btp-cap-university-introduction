@@ -3,7 +3,7 @@
 
 #import "@preview/touying:0.6.1": *
 #import themes.university: *
-#import "template-presentation.typ": *
+#import "files/templates/template-presentation.typ": *
 
 // Apply presentation template with SAP branding
 #show: presentation-setup.with(
@@ -206,7 +206,7 @@
 == Introduction to CAP
 
 #slide[
-  #v(0.5em)
+  #v(2em)
   The *SAP Cloud Application Programming Model* is a framework of languages, libraries, and tools for building *enterprise-grade* services and applications.
 
   #v(1em)
@@ -243,7 +243,7 @@
 == What is CAP?
 
 #slide[
-  #v(0.5em)
+  #v(2em)
   CAP complements cloud-native technologies with:
 
   #grid(
@@ -277,14 +277,15 @@
 
 #slide[
   #align(center)[
-    #image("files/presentation/cap-framework.png", height: 85%)
+    #v(2em)
+    #image("files/presentation/cap-framework.png", height: 80%)
   ]
 ]
 
 == Enterprise Services - Out of the Box
 
 #slide[
-  #v(0.5em)
+  #v(2em)
   CAP provides enterprise services *out-of-the-box*, minimizing tedious recurring tasks:
 
   #v(1.5em)
@@ -322,7 +323,7 @@
 == Core Data Services (CDS)
 
 #slide[
-  #v(0.5em)
+  #v(2em)
   *Cloud Qualities by Design* - Guiding developers to reach crucial cloud qualities through proven best practices
 
   #v(1.5em)
@@ -339,7 +340,7 @@
 == Guiding Principles
 
 #slide[
-  #v(0.5em)
+  #v(2em)
   #grid(
     columns: 2,
     gutter: 3em,
@@ -392,7 +393,7 @@
 == Focus on Domain, Powered by CDS
 
 #slide[
-  #v(0.5em)
+  #v(2em)
   *Capture Intent* - that is _What, not How_ - in *concise* and *comprehensible* models
 
   Promoting close collaboration of *developers* and *domain experts* to iteratively refine domain knowledge
@@ -426,7 +427,7 @@
 == Conceptual Modelling with CDS
 
 #slide[
-  #v(0.3em)
+  #v(2em)
   #grid(
     columns: (0.9fr, 1.3fr),
     gutter: 2em,
@@ -472,7 +473,7 @@
 == Aspect-oriented Modelling
 
 #slide[
-  #v(0.3em)
+  #v(2em)
   #grid(
     columns: (0.9fr, 1.3fr),
     gutter: 2em,
@@ -519,7 +520,7 @@
 == Modelling Services/APIs
 
 #slide[
-  #v(0.3em)
+  #v(2em)
   #grid(
     columns: (0.9fr, 1.3fr),
     gutter: 2em,
@@ -563,7 +564,7 @@
 == Semantic Enrichment with Annotations
 
 #slide[
-  #v(0.3em)
+  #v(2em)
   #grid(
     columns: (0.9fr, 1.3fr),
     gutter: 2em,
@@ -616,7 +617,7 @@
 == Everything is a Service
 
 #slide[
-  #v(0.5em)
+  #v(2em)
   Every *active* thing in CAP is a *Service*:
 
   - Always stateless, acting on passive data - _scalability_
@@ -637,7 +638,7 @@
 == Single-purposed Services
 
 #slide[
-  #v(0.3em)
+  #v(2em)
   ```cds
   // for end users to browse and shop books…
   service CatalogService {
@@ -674,7 +675,7 @@
 == Services as Facades
 
 #slide[
-  #v(0.3em)
+  #v(2em)
   #grid(
     columns: (0.8fr, 1.3fr),
     gutter: 2em,
@@ -713,7 +714,7 @@
 == Uniform APIs
 
 #slide[
-  #v(0.3em)
+  #v(2em)
   All services support *common APIs* to consume and implement services:
 
   #v(1em)
@@ -740,7 +741,7 @@
 == Late-cut Microservices
 
 #slide[
-  #v(0.3em)
+  #v(2em)
   *Cut microservices only when requirements are clear or change*
 
   #v(1em)
@@ -789,7 +790,7 @@
 == Event Handlers
 
 #slide[
-  #v(0.3em)
+  #v(2em)
   Implement custom logic via *event handlers* with three hooks:
 
   #v(0.5em)
@@ -802,7 +803,7 @@
 == What is OData?
 
 #slide[
-  #v(0.5em)
+  #v(2em)
   #grid(
     columns: 2,
     gutter: 4em,
@@ -837,7 +838,7 @@
 == Powerful Querying with CQN
 
 #slide[
-  #v(0.3em)
+  #v(2em)
   Services act as *facades*, exposing *simplified, de-normalized views*
 
   Runtimes *translate queries* between protocols and apply projections recursively
@@ -868,7 +869,7 @@
 == Calesi Design Pattern
 
 #slide[
-  #v(0.5em)
+  #v(2em)
   *CAP-level Service Integrations* - Extend your CAP application with plugins
 
   #v(1em)
@@ -909,7 +910,7 @@
 == Example: Audit Logging Plugin
 
 #slide[
-  #v(0.3em)
+  #v(2em)
   *Adding the audit-logging plugin:*
 
   #v(0.8em)
@@ -944,7 +945,7 @@
 == SAP Fiori Overview
 
 #slide[
-  #v(0.5em)
+  #v(2em)
   *SAP Fiori covers several dimensions:*
 
   #v(1em)
@@ -985,7 +986,7 @@
 == Why SAP Fiori Elements?
 
 #slide[
-  #v(0.5em)
+  #v(2em)
   *SAP Fiori elements makes it faster and easier to build SAPUI5 apps:*
 
   #v(1.5em)
@@ -1026,7 +1027,7 @@
 == What is SAP Fiori Elements?
 
 #slide[
-  #v(0.5em)
+  #v(2em)
   SAP Fiori elements is a *pro-code framework*, based on *SAPUI5*, aimed at *developers* to rapidly create SAP Fiori applications following SAP's design system and principles.
 
   #v(1em)
@@ -1047,7 +1048,7 @@
 == Standard Floorplans
 
 #slide[
-  #v(0.5em)
+  #v(2em)
   Most enterprise use cases involve providing an overview, lists of business objects, and management:
 
   #v(1em)
@@ -1080,7 +1081,7 @@
 == Building Blocks
 
 #slide[
-  #v(0.5em)
+  #v(2em)
   *Building blocks* give you the *flexibility* to create layouts or customize floorplans that fit your business requirements.
 
   #v(1.5em)
@@ -1099,7 +1100,7 @@
 == UX Consistency
 
 #slide[
-  #v(0.5em)
+  #v(2em)
   *UX Consistency includes:*
 
   #v(1.5em)
@@ -1134,7 +1135,7 @@
 == Enterprise-ready Features
 
 #slide[
-  #v(0.5em)
+  #v(2em)
   *SAP Fiori elements enables enterprise-ready apps out of the box:*
 
   #v(1.5em)
@@ -1172,7 +1173,7 @@
 == Draft Handling
 
 #slide[
-  #v(0.5em)
+  #v(2em)
   *Draft handling in SAP Fiori elements:*
 
   #v(1em)
@@ -1205,7 +1206,7 @@
 == Development Approaches
 
 #slide[
-  #v(0.5em)
+  #v(2em)
   *Several ways to build SAPUI5 apps - these are AND not OR:*
 
   #v(1em)
@@ -1254,7 +1255,7 @@
 == SAP Fiori Tools
 
 #slide[
-  #v(0.5em)
+  #v(2em)
   *SAP Fiori tools simplifies building SAP Fiori elements and SAPUI5 freestyle apps:*
 
   #v(1em)
@@ -1271,7 +1272,7 @@
 == SAP Fiori Elements in a Nutshell
 
 #slide[
-  #v(1em)
+  #v(2em)
   #align(center)[
     #rect(fill: rgb("#E3F2FD"), radius: 8pt, inset: 1.5em)[
       #text(size: 24pt, weight: "bold")[App = OData + Annotations]
@@ -1309,12 +1310,15 @@
 // SECTION: BREAK
 // ============================================================================
 = Break
+#slide[
+  #v(3em)
+  #align(center)[
+    #text(size: 48pt, weight: "bold")[Break]
 
-#focus-slide(background-color: rgb("#1B4F72"))[
-  #text(size: 48pt, weight: "bold", fill: white)[Break]
+    #v(1em)
 
-  #v(1em)
-  #text(fill: white)[_We'll continue with the practical exercise_]
+    #text(size: 24pt)[Grab a coffee, stretch your legs, and get ready for the practical exercise!]
+  ]
 ]
 
 // ============================================================================
@@ -1325,45 +1329,42 @@
 == Today's Exercise
 
 #slide[
-  #v(0.5em)
-  #align(center)[
-    #image("files/presentation/exercise-steps.png", height: 45%)
-  ]
-
-  #v(1em)
+  #v(1fr)
 
   #grid(
     columns: 4,
-    gutter: 1.2em,
+    gutter: 1em,
     [
       #rect(fill: rgb("#E3F2FD"), radius: 4pt, inset: 0.8em)[
         #align(center)[*1. Read*]
 
-        Study the exercise documentation
+        Study the exercise instructions carefully
       ]
     ],
     [
       #rect(fill: rgb("#E8F5E9"), radius: 4pt, inset: 0.8em)[
         #align(center)[*2. Setup*]
 
-        Configure BAS or VS Code
+        Configure VS Code or use DevContainer
       ]
     ],
     [
       #rect(fill: rgb("#FFF3E0"), radius: 4pt, inset: 0.8em)[
         #align(center)[*3. Develop*]
 
-        Build your CAP app
+        Build your CAP application
       ]
     ],
     [
       #rect(fill: rgb("#F3E5F5"), radius: 4pt, inset: 0.8em)[
         #align(center)[*4. Deploy*]
 
-        Test and deploy to CF
+        _Optional_:\ Test and deploy to CF
       ]
     ],
   )
+
+  #v(1fr)
 ]
 
 == Download the Exercise
@@ -1384,7 +1385,7 @@
 == Summary - BTP & CAP
 
 #slide[
-  #v(0.5em)
+  #v(2em)
   *BTP* - SAP's platform providing a unified environment for:
   - Application development
   - Process automation
@@ -1405,7 +1406,7 @@
 == Summary - Fiori Elements
 
 #slide[
-  #v(0.5em)
+  #v(2em)
   *Fiori Elements* - Low-code framework for generating standardized SAP Fiori UIs
 
   #v(1.5em)
@@ -1480,7 +1481,7 @@
     #v(2em)
 
     #text(size: 20pt)[
-      #link("https://github.com/schiwekM/cap-uni-sample/tree/solution")[
+      #link("https://github.com/sap-samples/btp-cap-university-introduction/tree/solution")[
         github.com/schiwekM/cap-uni-sample/tree/solution
       ]
     ]

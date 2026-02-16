@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v3
       - uses: typst-community/setup-typst@v4
       - name: Build typ exercise
-        run: typst compile exercise.typ exercise.pdf --input version=${{ github.event.release.tag_name }}
+        run: typst compile --font-path files/fonts/ presentation.typ exercise.typ exercise.pdf --input version=${{ github.event.release.tag_name }}
       - name: Build typ exercise
         run: typst compile --font-path files/fonts/ presentation.typ presentation.pdf --input version=${{ github.event.release.tag_name }}
       - name: Upload PDF

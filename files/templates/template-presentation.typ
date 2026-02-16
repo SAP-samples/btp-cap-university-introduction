@@ -7,8 +7,8 @@
 // =============================================================================
 // CONSTANTS
 // =============================================================================
-#let cap-logo-path = "files/presentation/cap-logo.svg"
-#let section-background-path = "files/presentation/initial-background.png"
+#let cap-logo-path = "../cap-logo.svg"
+#let section-background-path = "../presentation/initial-background.png"
 
 // =============================================================================
 // CUSTOM SECTION SLIDE WITH BACKGROUND IMAGE
@@ -67,7 +67,7 @@
   // Set section slide text color
   section-slide-text-color.update(section-text-color)
   // Register CDS syntax highlighting from sublime-syntax file
-  set raw(syntaxes: "files/syntax/cds.sublime-syntax")
+  set raw(syntaxes: "../syntax/cds.sublime-syntax")
 
   // Apply Touying university theme with SAP branding
   show: university-theme.with(
@@ -130,7 +130,7 @@
     radius: 6pt,
     width: 100%,
   )
-  show raw: set text(font: "Fira Code", size: 12pt)
+  show raw: set text(font: "72", size: 12pt)
   show raw.where(block: true): set text(fill: rgb("#d4d4d4"))
 
   doc

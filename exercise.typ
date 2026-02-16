@@ -1,4 +1,4 @@
-#import "template.typ": *
+#import "files/templates/template.typ": *
 
 #show: workshop-setup
 
