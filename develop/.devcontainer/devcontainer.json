@@ -1,0 +1,26 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+  "name": "CAP University Exercise Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+  "postCreateCommand": "npm install -g @sap/cds-dk",
+  "portsAttributes": {
+    "4004": {
+      "label": "CAP server",
+      "onAutoForward": "notify"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "sapse.vscode-cds",
+        "mechatroner.rainbow-csv",
+        "qwtel.sqlite-viewer",
+        "humao.rest-client",
+        "dbaeumer.vscode-eslint",
+        "SAPOSS.vscode-cf-tools",
+        "SAPSE.sap-ux-fiori-tools-extension-pack"
+      ]
+    }
+  }
+}
