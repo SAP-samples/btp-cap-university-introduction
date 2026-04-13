@@ -50,15 +50,16 @@
 = Setup
 
 + Follow the #link-blue("https://pages.github.tools.sap/cap/docs/get-started/", "Getting Started Page") of the Capire Doc
-+ Install the following extensions in VS Code:
-  - #link-blue("https://marketplace.visualstudio.com/items?itemName=SAPOSS.vscode-cf-tools", "Cloud Foundry Tools")
-  - #link-blue(
-      "https://marketplace.visualstudio.com/items?itemName=SAPSE.sap-ux-fiori-tools-extension-pack",
-      "SAP Fiori Tools - Extension Pack",
-    )
-  - #link-blue("https://marketplace.visualstudio.com/items?itemName=SAPSE.vscode-cds", "SAP CDS Language Support")
-  - #link-blue("https://marketplace.visualstudio.com/items?itemName=mechatroner.rainbow-csv", "Rainbow CSV")
-  You may need to restart VS Code to load all new extensions.
++ Run VS Code and install the #link-blue("https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers", "DevContainer") extension or with:
+    ```bash
+    code --install-extension ms-vscode-remote.remote-containers
+    ```
++ Download `cap-university-introduction.zip` release from #link-blue("https://github.com/SAP-samples/btp-cap-university-introduction/releases", "Releases")
++ Unzip `cap-university-introduction.zip`
++ Open `cap-university-introduction` with the following command if installed:
+    ```bash
+    code ./cap-university-introduction
+    ```
 
 #pagebreak()
 
@@ -76,16 +77,13 @@ This enterprise-grade solution will provide:
 
 - *Module Assignment Tracking:* Enable students to register for available modules and manage their course selections, while enforcing business rules around module availability, prerequisites, and study program requirements
 
-- *No Worries:* We won't implement all of this ;)
-
-The system establishes clear relationships between Students, Studies (degree programs), and Modules, allowing for flexible curriculum design while maintaining data integrity and providing students with a personalized view of their academic path.
+The system establishes clear relationships between Students, Studies (degree programs), and Modules, allowing for flexible curriculum design while maintaining data integrity.
 
 == Helpful Links
-While working on the task, feel free to use the following documentations as much as possible. Especially the CAP Documentation is really powerful.
+While working on the task, feel free to use the following documentations *as much as possible*:
 
-- #link-blue("https://pages.github.tools.sap/cap/docs/", "Internal CAPire (CAP Documentation)")
+- #link-blue("https://cap.cloud.sap/docs/cds/", "CAPire (CAP Documentation)")
 - #link-blue("https://experience.sap.com/fiori-design-web/", "Fiori development portal & Fiori elements documentation")
-- #link-blue("https://learning.sap.com/", "SAP Learning")
 
 #pagebreak()
 
@@ -106,7 +104,7 @@ Use below diagram as a reference to design your CAP entities.
 Initialize your CAP application with the following command in the terminal either in VS Code or BAS:
 
 ```bash
-cds init university
+cds init university --add nodejs
 cd university
 ```
 
@@ -114,9 +112,7 @@ cd university
 
 Your project structure should look like this:
 
-#align(center)[
-  #image("files/intro-exercise/project-structure.png", width: 30%)
-]
+#image("files/intro-exercise/project-structure.png", width: 30%)
 
 == File Structure Setup
 
@@ -126,11 +122,11 @@ Create the database schema file in `/db/`:
 Create service definition files in `/srv/`:
 - `students-service.cds`
 - `studies-service.cds`
-- `catalog-service.cds`
+- `modules-service.cds`
 
 == Create Data Models
 
-Create the data models in the `/db` flder based on the entity diagram. You can have a look at the #link-blue("https://pages.github.tools.sap/cap/docs/cds/cdl", "CDL documentation") for reference.
+Create the data models in the `/db` folder based on the entity diagram. You can have a look at the #link-blue("https://pages.github.tools.sap/cap/docs/cds/cdl", "CDL documentation") for reference.
 
 #hint-block[
   *Hint:* If you are stuck with the creation of the data model, please raise your hand. We are happy to help you.
@@ -138,9 +134,10 @@ Create the data models in the `/db` flder based on the entity diagram. You can h
 
 == Create Example Data
 
-Generate schema with example data:
+Generate example data, adjust to your needs since this only contains UUIDs and not real content:
 
 ```bash
+cd university
 cds add data --records 10
 ```
 
@@ -149,12 +146,14 @@ cds add data --records 10
 Test if your data models are defined correctly and no compilation errors occur (You can leave this command running while working on the next steps):
 
 ```bash
+cd university
 cds watch
 ```
-Only proceed to the next step if your compilation is successfull, otherwise have a closer look at your data model. In case you make changes to your model, you also may need to delete the `db/data` folder and recreate the example data.
+Only proceed to the next step if your compilation is successfull, otherwise have a closer look at your data model. In case you make changes to your model, you also may need to delete the `db/data` folder and recreate the example data or run `cds add data --records 10 --force` to force update the generated data.
+
 == Create Services
 
-Create the services in the `/srv/` folder, which expose the entities via API. Check out the #link-blue("https://pages.github.tools.sap/cap/docs/cds/services", "documentation") for how to define services.
+Create the services in the `/srv/` folder, which expose the entities via API. Check out the #link-blue("https://cap.cloud.sap/docs/cds/cdl#services", "documentation") for how to define services.
 
 - The studies service should expose the Studies entity
 - The students service should expose the Students entity and the Studies entity. The studies entity can be later used as a value help when creating a new student and assigning them to a study
@@ -163,7 +162,7 @@ Create the services in the `/srv/` folder, which expose the entities via API. Ch
 
 == Add Actions
 
-Actions allow to define POST endpoints, which execute some logic when being called. Follow the #link-blue("https://pages.github.tools.sap/cap/docs/cds/services#actions", "docs") to add a bound action "assign" to the Modules. Do not add an implementation for that yet. We will do that later.
+Actions allow to define POST endpoints, which execute some logic when being called. Follow the #link-blue("https://cap.cloud.sap/docs/cds/cdl#actions", "docs") to add a bound action "assign" to the Modules. Do not add an implementation for that yet. We will do that later.
 
 == Create UI Applications
 
@@ -173,13 +172,10 @@ Create UI applications by using the Fiori Frontend Generator.
   *Note:* You should repeat this step for each OData service, in total 3 times.
 ]
 
-+ In the menu click *View → Command Palette* (Ctrl + Shift + P) and start typing "Fiori" and select *Fiori: Open CF Application Generator*
++ In the menu click *View → Command Palette* (`Ctrl + Shift + P` or `⌘ + Shift + P`) and start typing "Fiori" and select *Fiori: Open Application Generator*
 
 + Select *List Report Page* in the template section and click "Next"
-
-#align(center)[
   #image("files/intro-exercise/fiori-generator.png", width: 80%)
-]
 
 + In *Data Source* select "Use a Local CAP Project":
   - Choose a CAP Project: `university`
@@ -209,7 +205,7 @@ Create UI applications by using the Fiori Frontend Generator.
 
 == Define UI Annotations
 
-For defining the UI annotations, you can use the Fiori application modeler plugin (#image("files/intro-exercise/fiori-modeler-icon.png", height: 1em) icon):
+For defining the UI annotations, you can use the Fiori application modeler plugin icon: #image("files/intro-exercise/fiori-modeler-icon.png", height: 2em)
 
 - Select the app you want to work on and select the page, e.g. either the list page or the details page
 - Afterwards you can configure columns for tables or modify the sections shown on the details page
@@ -461,3 +457,9 @@ cf undeploy <ID from mta.yaml> --delete-services
 ```
 
 Replace `<ID from mta.yaml>` with the actual ID specified in your `mta.yaml` file.
+
+#pagebreak()
+
+= Further Reading
+
+- #link-blue("https://learning.sap.com/", "SAP Learning")
