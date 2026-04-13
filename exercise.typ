@@ -106,6 +106,7 @@ Initialize your CAP application with the following command in the terminal eithe
 ```bash
 cds init university --add nodejs
 cd university
+npm i
 ```
 
 == Project Structure
@@ -156,13 +157,13 @@ Only proceed to the next step if your compilation is successfull, otherwise have
 Create the services in the `/srv/` folder, which expose the entities via API. Check out the #link-blue("https://cap.cloud.sap/docs/cds/cdl#services", "documentation") for how to define services.
 
 - The studies service should expose the Studies entity
-- The students service should expose the Students entity and the Studies entity. The studies entity can be later used as a value help when creating a new student and assigning them to a study
+- The students service should expose the Students entity and the Studies entity.
 - In the Students and Studies service enable draft for the respective entities to allow them being edited
-- In the Catalog service expose the Modules entity as well as the ModuleAssignments entity, to show a list of modules students can sign up for
+- In the Module service expose the Modules entity as well as the ModuleAssignments entity, to show a list of modules students can sign up for
 
 == Add Actions
 
-Actions allow to define POST endpoints, which execute some logic when being called. Follow the #link-blue("https://cap.cloud.sap/docs/cds/cdl#actions", "docs") to add a bound action "assign" to the Modules. Do not add an implementation for that yet. We will do that later.
+Actions allow to define POST endpoints, which execute some logic when being called. Follow the #link-blue("https://cap.cloud.sap/docs/cds/cdl#actions", "docs") to add the bound actions "assign" and "unassign" to the Modules. Do not add an implementation for that yet. We will do that later.
 
 == Create UI Applications
 
@@ -194,6 +195,8 @@ Create UI applications by using the Fiori Frontend Generator.
   - Description: `YourDescription`
   - Enable TypeScript: *No*
   - Add Fiori Launchpad Configuration: *Yes*
+  - Use Virtual Endpoints for Local Preview: *No*
+  - Configure Advanced Options: *No*
 
 + In the *SAP Fiori Launchpad Configuration*:
   - Semantic Object: `YourMainEntityOfTheService`
@@ -220,9 +223,10 @@ For defining the UI annotations, you can use the Fiori application modeler plugi
 
 == Add Local Launchpad
 
-Add a local launchpad by running the following command:
+Add a local launchpad by running the following commands:
 
 ```bash
+npm install express@^4 --save-peer
 npm add -D cds-launchpad-plugin
 ```
 
@@ -245,7 +249,7 @@ Edit the Object Page:
   #image("files/intro-exercise/fiori-editor.png", width: 100%)
 ]
 
-- Under *Header → Actions → + on the right side → Add Actions* → Select the assign action
+- Under *Header → Actions → + on the right side → Add Actions* → Select the assign and unassign actions
 
 If you now restart, go to the object page and click assign, you should get an error that an implementation is missing. We will add that later.
 
@@ -288,17 +292,19 @@ cds add typescript
 npm install
 ```
 
-Add a `/srv/catalog-service.ts` file. CAP will automatically consider js/ts files with the same name as the service file.
+Add a `/srv/modules-service.ts` file. CAP will automatically consider js/ts files with the same name as the service file.
 
 ```ts
-import cds from '@sap/cds';
-import { Module } from '#cds-models/CatalogService'
+import cds from "@sap/cds";
+import { Module } from "#cds-models/ModulesService";
 
-export class CatalogService extends cds.ApplicationService {
+export class ModulesService extends cds.ApplicationService {
   init() {
-    this.on(Module.actions.assign, async req => {
-      console.log("Assign called", req.user)
-    })
+    this.on(Module.actions.assign, async (req) => {
+      console.log("Assign called", req.user);
+    });
+
+    return super.init();
   }
 }
 ```
