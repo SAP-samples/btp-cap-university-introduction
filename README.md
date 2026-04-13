@@ -17,23 +17,24 @@ For accessing the rendered components please visit the [Release section](https:/
 
 ## Getting started
 
-1. Run VS Code and install the [DevContainer](vscode:extension/ms-vscode-remote.remote-containers) extension.
+1. Run VS Code and install the [DevContainer](vscode:extension/ms-vscode-remote.remote-containers) extension or with:
+    ```bash
+    code --install-extension ms-vscode-remote.remote-containers
+    ```
 
-2. Clone this repository:
+1. Download `cap-university-introduction.zip` release from [Releases](https://github.com/SAP-samples/btp-cap-university-introduction/releases)
+2. Unzip `cap-university-introduction.zip`
+3. Open `cap-university-introduction` with the following command if installed:
+    ```bash
+    code ./cap-university-introduction
+    ```
 
-```bash
-git clone sap-samples/btp-cap-university-introduction
-```
+> [!NOTE] 
+> On the bottom right corner, click on open in Container:
+> 
+> ![Open in devcontainer](./files/open-in-devcontainer.png)
 
-3. Open up the folder e.g. with:
-
-```bash
-code btp-cap-university-introduction/develop
-```
-
-On the bottom right corner, click on open DevContainer.
-
-4. Happy coding! 🥳
+5. Happy coding! 🥳
 
 ## License
 
