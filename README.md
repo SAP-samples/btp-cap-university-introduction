@@ -1,4 +1,4 @@
-![BTP Logo](files/intro-exercise/title-header.jpeg)
+![BTP Logo](files/intro-exercise/title-header.jpg)
 
 # CAP BTP University introduction
 
