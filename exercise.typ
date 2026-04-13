@@ -91,9 +91,7 @@ While working on the task, feel free to use the following documentations *as muc
 
 Use below diagram as a reference to design your CAP entities.
 
-#align(center)[
-  #image("files/intro-exercise/entity-diagram.png", width: 80%)
-]
+#image("files/intro-exercise/entity-diagram.drawio.png", width: 80%)
 
 #pagebreak()
 
