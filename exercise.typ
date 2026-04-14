@@ -224,7 +224,7 @@ For defining the UI annotations, you can use the Fiori application modeler plugi
 Add a local launchpad by running the following commands:
 
 ```bash
-npm install express@^4 --save-peer
+npm install express@4
 npm add -D cds-launchpad-plugin
 ```
 
