@@ -6,7 +6,7 @@
 #align(center)[
   #v(2cm)
 
-  #image("files/intro-exercise/title-header.jpeg", width: 100%)
+  #image("files/intro-exercise/title-header.jpg", width: 100%)
 
   #v(2cm)
 ]
