@@ -1,0 +1,11 @@
+moduleID,study_studyID,name,credits,weights,hasFixedWeight,validFrom,validTo,isMandatory,isFinalThesis,additionalInfo
+b2c3d4e5-2222-4000-8000-000000000001,a1b2c3d4-1111-4000-8000-000000000001,Introduction to Programming,6,10,true,2025-04-01,2025-09-30,true,false,Covers Python and Java basics
+b2c3d4e5-2222-4000-8000-000000000002,a1b2c3d4-1111-4000-8000-000000000001,Data Structures and Algorithms,6,15,true,2025-04-01,2025-09-30,true,false,Trees graphs sorting and searching
+b2c3d4e5-2222-4000-8000-000000000003,a1b2c3d4-1111-4000-8000-000000000001,Database Systems,6,10,true,2025-10-01,2026-03-31,true,false,SQL relational modeling and normalization
+b2c3d4e5-2222-4000-8000-000000000004,a1b2c3d4-1111-4000-8000-000000000001,Software Engineering,6,10,false,2025-10-01,2026-03-31,false,false,Agile methodologies and design patterns
+b2c3d4e5-2222-4000-8000-000000000005,a1b2c3d4-1111-4000-8000-000000000001,Bachelor Thesis Computer Science,12,30,true,2026-04-01,2026-09-30,true,true,Independent research project
+b2c3d4e5-2222-4000-8000-000000000006,a1b2c3d4-1111-4000-8000-000000000002,Principles of Marketing,6,10,true,2025-04-01,2025-09-30,true,false,Marketing strategy and consumer behavior
+b2c3d4e5-2222-4000-8000-000000000007,a1b2c3d4-1111-4000-8000-000000000002,Financial Accounting,6,15,true,2025-04-01,2025-09-30,true,false,Balance sheets income statements and cash flow
+b2c3d4e5-2222-4000-8000-000000000008,a1b2c3d4-1111-4000-8000-000000000003,Thermodynamics,6,10,true,2025-04-01,2025-09-30,true,false,Laws of thermodynamics and heat transfer
+b2c3d4e5-2222-4000-8000-000000000009,a1b2c3d4-1111-4000-8000-000000000003,Mechanics of Materials,6,15,true,2025-10-01,2026-03-31,true,false,Stress strain and structural analysis
+b2c3d4e5-2222-4000-8000-000000000010,a1b2c3d4-1111-4000-8000-000000000004,Linear Algebra,6,10,true,2025-04-01,2025-09-30,true,false,Vectors matrices and linear transformations

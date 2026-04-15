@@ -1,0 +1,179 @@
+{
+  "_version": "1.76.0",
+  "sap.app": {
+    "id": "modulemanagement",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.19.5",
+      "toolsId": "33db7e58-1a00-4fc0-9157-5fd31639c246"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/modules/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "Modules-manage": {
+          "semanticObject": "Modules",
+          "action": "manage",
+          "title": "{{Modules-manage.flpTitle}}",
+          "subTitle": "{{Modules-manage.flpSubtitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.146.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "modulemanagement.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "ModulesList",
+          "target": "ModulesList"
+        },
+        {
+          "pattern": "Modules({key}):?query:",
+          "name": "ModulesObjectPage",
+          "target": "ModulesObjectPage"
+        },
+        {
+          "pattern": "Modules({key})/assignments({key2}):?query:",
+          "name": "StudentModuleAssignmentObjectPage",
+          "target": "StudentModuleAssignmentObjectPage"
+        }
+      ],
+      "targets": {
+        "ModulesList": {
+          "type": "Component",
+          "id": "ModulesList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/Modules",
+              "variantManagement": "Page",
+              "initialLoad": true,
+              "navigation": {
+                "Modules": {
+                  "detail": {
+                    "route": "ModulesObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ModulesObjectPage": {
+          "type": "Component",
+          "id": "ModulesObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Modules",
+              "navigation": {
+                "assignments": {
+                  "detail": {
+                    "route": "StudentModuleAssignmentObjectPage"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "StudentModuleAssignmentObjectPage": {
+          "type": "Component",
+          "id": "StudentModuleAssignmentObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Modules/assignments"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}

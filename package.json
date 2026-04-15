@@ -1,0 +1,53 @@
+{
+  "name": "university",
+  "version": "1.0.0",
+  "dependencies": {
+    "@sap/cds": "^9",
+    "express": "^4.22.1"
+  },
+  "devDependencies": {
+    "@cap-js/cds-typer": ">=0.1",
+    "@cap-js/cds-types": "^0.16.0",
+    "@cap-js/sqlite": "^2",
+    "@types/node": "^24.0.0",
+    "cds-launchpad-plugin": "^2.2.0",
+    "cds-plugin-ui5": "^0.13.0",
+    "tsx": "^4",
+    "typescript": "^6.0.0"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-module-management": "cds watch --open modulemanagement/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-students-management": "cds watch --open studentsmanagement/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-studies-management": "cds watch --open studiesmanagement/index.html?sap-ui-xx-viewCache=false --livereload false"
+  },
+  "private": true,
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/module-management",
+    "app/students-management",
+    "app/studies-management"
+  ],
+  "cds": {
+    "requires": {
+      "[development]": {
+        "auth": {
+          "kind": "mocked",
+          "users": {
+            "alice": {
+              "password": "1234",
+              "roles": [
+                "Student"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "imports": {
+    "#cds-models/*": "./@cds-models/*/index.js"
+  }
+}
