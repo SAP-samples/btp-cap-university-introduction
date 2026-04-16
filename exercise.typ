@@ -49,7 +49,7 @@
 
 = Setup
 
-+ Follow the #link-blue("https://pages.github.tools.sap/cap/docs/get-started/", "Getting Started Page") of the Capire Doc
++ Follow the #link-blue("https://cap.cloud.sap/docs/get-started/", "Getting Started Page") of the Capire Doc
 + Run VS Code and install the #link-blue("https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers", "DevContainer") extension or with:
     ```bash
     code --install-extension ms-vscode-remote.remote-containers
@@ -125,7 +125,7 @@ Create service definition files in `/srv/`:
 
 == Create Data Models
 
-Create the data models in the `/db` folder based on the entity diagram. You can have a look at the #link-blue("https://pages.github.tools.sap/cap/docs/cds/cdl", "CDL documentation") for reference.
+Create the data models in the `/db` folder based on the entity diagram. You can have a look at the #link-blue("https://cap.cloud.sap/docs/cds/cdl", "CDL documentation") for reference.
 
 #hint-block[
   *Hint:* If you are stuck with the creation of the data model, please raise your hand. We are happy to help you.
@@ -217,7 +217,7 @@ For defining the UI annotations, you can use the Fiori application modeler plugi
   - `@UI.FieldGroup` specifies a form
   - `@UI.Facets` specifies the sections of an object page. Facets can contain field groups, line items or charts
   - You can check-out the #link-blue("https://ui5.sap.com/test-resources/sap/fe/core/fpmExplorer/index.html", "Fiori elements showcase") for samples of each annotation
-- To disable the "Go" button in the UI add the "liveMode" setting in each applications `webapp/manifest.json` file. For more information, reference to the #link-blue("https://pages.github.tools.sap/cap/docs/advanced/fiori#live-mode", "docs")
+- To disable the "Go" button in the UI add the "liveMode" setting in each applications `webapp/manifest.json` file. For more information, reference to the #link-blue("https://cap.cloud.sap/docs/advanced/fiori", "docs")
 
 == Add Local Launchpad
 
@@ -257,7 +257,7 @@ You can start your application in debug mode by using a JavaScript Debug Termina
 
 == Adding Authorization and Authentication
 
-You now want to restrict the catalog service so that only Students can see it. Read about auth in CAP #link-blue("https://pages.github.tools.sap/cap/docs/guides/authorization", "here").
+You now want to restrict the catalog service so that only Students can see it. Read about auth in CAP #link-blue("https://cap.cloud.sap/docs/guides/authorization", "here").
 
 CAP offers pre-defined mock users. We now want to overwrite one of them to add the role Student to the mock user alice. You can do it like this in your `package.json`:
 
