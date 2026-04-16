@@ -296,7 +296,7 @@ Add a `/srv/modules-service.ts` file. CAP will automatically consider js/ts file
 import cds from "@sap/cds";
 import { Module } from "#cds-models/ModulesService";
 
-export class ModulesService extends cds.ApplicationService {
+export default class ModulesService extends cds.ApplicationService {
   init() {
     this.on(Module.actions.assign, async (req) => {
       console.log("Assign called", req.user);
