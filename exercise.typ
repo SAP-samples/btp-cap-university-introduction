@@ -217,7 +217,7 @@ For defining the UI annotations, you can use the Fiori application modeler plugi
   - `@UI.FieldGroup` specifies a form
   - `@UI.Facets` specifies the sections of an object page. Facets can contain field groups, line items or charts
   - You can check-out the #link-blue("https://ui5.sap.com/test-resources/sap/fe/core/fpmExplorer/index.html", "Fiori elements showcase") for samples of each annotation
-- To disable the "Go" button in the UI add the "liveMode" setting in each applications `webapp/manifest.json` file. For more information, reference to the #link-blue("https://cap.cloud.sap/docs/advanced/fiori", "docs")
+- To disable the "Go" button in the UI add the "liveMode" setting in each applications `webapp/manifest.json` file. For more information, reference to the #link-blue("https://cap.cloud.sap/docs/advanced/fiori", "generic docs") and the #link-blue("https://github.com/SAP-samples/fiori-elements-feature-showcase?tab=readme-ov-file#enabling-live-mode", "liveMode docs")
 
 == Add Local Launchpad
 
