@@ -2,13 +2,15 @@
   "name": "university",
   "version": "1.0.0",
   "dependencies": {
-    "@sap/cds": "^9",
-    "express": "^4.22.1"
+    "@cap-js/agents": "^0.9.8",
+    "@cap-js/mcp": "^1.5.0",
+    "@sap/cds": "^10",
+    "express": "^4.22.3"
   },
   "devDependencies": {
     "@cap-js/cds-typer": ">=0.1",
-    "@cap-js/cds-types": "^0.16.0",
-    "@cap-js/sqlite": "^2",
+    "@cap-js/cds-types": ">=0.16.0",
+    "@cap-js/sqlite": "^3",
     "@types/node": "^24.0.0",
     "cds-launchpad-plugin": "^2.2.0",
     "cds-plugin-ui5": "^0.13.0",
