@@ -23,7 +23,7 @@
   #text(size: 12pt)[
     Version: #sys.inputs.at("version", default: "1.0.0")
 
-    Date: January 14, 2026
+    Date: October 14, 2026
   ]]
 
 
@@ -38,7 +38,8 @@
 #pagebreak()
 
 #hint-block[
-  *Note:* This workshop includes two optional advanced sections at the end:
+  *Note:* This workshop includes three optional advanced sections at the end:
+  - *AI features: MCP and Agents* -- Agentify your application
   - *Optional: Advanced UI Customization* -- Enhance your UI with SideEffects, criticality highlighting, and conditional buttons
   - *Optional: Deployment to Cloud Foundry* -- Deploy your application to SAP BTP Cloud Foundry
 
@@ -83,7 +84,7 @@ The system establishes clear relationships between Students, Studies (degree pro
 While working on the task, feel free to use the following documentations *as much as possible*:
 
 - #link-blue("https://cap.cloud.sap/docs/cds/", "CAPire (CAP Documentation)")
-- #link-blue("https://experience.sap.com/fiori-design-web/", "Fiori development portal & Fiori elements documentation")
+- #link-blue("https://experience.sap.com/fiori-design-web/", "Fiori development portal") & #link-blue("https://ui5.sap.com/test-resources/sap/fe/core/fpmExplorer/index.html#/overview/introduction", "Fiori elements docs")
 
 #pagebreak()
 
@@ -247,7 +248,7 @@ Edit the Object Page:
   #image("files/intro-exercise/fiori-editor.png", width: 100%)
 ]
 
-- Under *Header → Actions → + on the right side → Add Actions* → Select the assign and unassign actions
+- Under *Table → Tool Bar → Actions → Add Actions* → Select the assign and unassign actions
 
 If you now restart, go to the object page and click assign, you should get an error that an implementation is missing. We will add that later.
 
@@ -318,6 +319,30 @@ Implement the assign action that assigns the user to the Module. In case an assi
 
 #v(2cm)
 Congratulations! You just created your first CAP-Application.
+
+#pagebreak()
+
+= Optional: Agentify your CAP application
+
+This section covers the agentification of you application. We will make your business data consumable by Agents by building an MCP Server, followed by building the agent directly within your CAP-Application.
+
+== MCP Server
+
+The goal of building an MCP server for your application is to provide agents access to your application. Use the #link-blue("https://cap.cloud.sap/docs/guides/ai/cap-mcp", "MCP documentation") to find out how to enable MCP for the Studies and Modules Services. Make sure they are still served via OData to not break your existing application.
+
+Use the #link-blue("https://modelcontextprotocol.io/docs/2026-07-28/tools/inspector", "MCP Inspector") to try out your created MCP Server, and try to call the provided tools.
+
+TODO: Image of Inspector
+
+If you have setup a local harness like ClaudeCode or Opencode, you can also test the MCP Inspector within them. Just make sure your CAP Application is started, and then restart your harness. Because of the #link-blue("https://cap.cloud.sap/docs/guides/ai/cap-mcp#cdsmcpautowire", "auto-wiring") of MCP Servers to you local configurations, you should be able to see and use the tools.
+
+TODO: Image of Opencode calling a tool
+
+== Agents
+
+Building an agent is even more optional, as the invokation of the agent requires access to an LLM (except, as always in CAP, a local mock variant, but thats then not really intelligent). You can check the #link-blue("https://cap.cloud.sap/docs/guides/ai/cap-agents#automatic-config", "documentation") about automatic LLM config how you can make the CAP Application aware of your LLM.
+
+Start by creating a new empty CAP Service, called the `StudyAdvisoryAgent` and agentify it, as described in the #link-blue("https://cap.cloud.sap/docs/guides/ai/cap-agents", "documentation about agents"). If you now start your application, you can see in the logs that your agent is started and server with the `Agent2Agent`-Protocol. Visit `localhost:4004` and find the preview chat page for your agent. You can now start chatting with your agent. Because of the auto-wiring feature of the agent plugin, your MCP Servers from the last exercise will automatically be connected to your agent.
 
 #pagebreak()
 
@@ -425,7 +450,7 @@ This adds the configuration for:
 ]
 
 == Cloud Foundry Login
-TODO: Update to login to their instance based on what is available.
+This step heavily depends on what you have available, you can find all necessary information #link-blue("https://learning.sap.com/courses/provisioning-and-administering-databases-in-sap-hana-cloud/logging-in-using-cloud-foundry-cli_de62119d-e3d2-45f8-b277-58a59e03dfa6", "here").
 
 == Build and Deploy
 
@@ -464,6 +489,3 @@ Replace `<ID from mta.yaml>` with the actual ID specified in your `mta.yaml` fil
 
 #pagebreak()
 
-= Further Reading
-
-- #link-blue("https://learning.sap.com/", "SAP Learning")
