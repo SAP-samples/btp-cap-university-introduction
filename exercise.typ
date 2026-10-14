@@ -100,11 +100,12 @@ Use below diagram as a reference to design your CAP entities.
 
 == Initialize CAP Application
 
-Initialize your CAP application with the following command in the terminal either in VS Code or BAS:
+Initialize your CAP application with the following command in the terminal in VS Code:
 
 ```bash
 cds init university --add nodejs
 cd university
+npm i express@4
 npm i
 ```
 
@@ -260,7 +261,7 @@ You can start your application in debug mode by using a JavaScript Debug Termina
 
 You now want to restrict the catalog service so that only Students can see it. Read about auth in CAP #link-blue("https://cap.cloud.sap/docs/guides/authorization", "here").
 
-CAP offers pre-defined mock users. We now want to overwrite one of them to add the role Student to the mock user alice. You can do it like this in your `package.json`:
+CAP offers pre-defined mock users. We now want to overwrite one of them to add the role Student to the mock user alice. You can do it like this in your `package.json`.
 
 ```json
 "cds": {
@@ -270,7 +271,7 @@ CAP offers pre-defined mock users. We now want to overwrite one of them to add t
         "kind": "mocked",
         "users": {
           "alice": {
-            "password": "1234",
+            "password": "",
             "roles": [
               "Student"
             ]
@@ -324,25 +325,50 @@ Congratulations! You just created your first CAP-Application.
 
 = Optional: Agentify your CAP application
 
-This section covers the agentification of you application. We will make your business data consumable by Agents by building an MCP Server, followed by building the agent directly within your CAP-Application.
+This section covers the agentification of the application. Agentification means that an agent can query the data of the app and execute defined actions. Data and actions are consumable by Agents via tools exposed by MCP Servers or directly defined within the action.
 
 == MCP Server
 
-The goal of building an MCP server for your application is to provide agents access to your application. Use the #link-blue("https://cap.cloud.sap/docs/guides/ai/cap-mcp", "MCP documentation") to find out how to enable MCP for the Studies and Modules Services. Make sure they are still served via OData to not break your existing application.
+The goal of building an MCP server for the application is to provide agents access to data. Use the #link-blue("https://cap.cloud.sap/docs/guides/ai/cap-mcp", "MCP documentation") to find out how to enable MCP for the Studies and Modules Services. Make sure they are still served via OData to not break the existing application.
 
-Use the #link-blue("https://modelcontextprotocol.io/docs/2026-07-28/tools/inspector", "MCP Inspector") to try out your created MCP Server, and try to call the provided tools.
+```bash
+npm i @cap-js/mcp
+```
 
-TODO: Image of Inspector
+Use the #link-blue("https://modelcontextprotocol.io/docs/2026-07-28/tools/inspector", "MCP Inspector") to try out the created MCP Server by calling the provided tools.
 
-If you have setup a local harness like ClaudeCode or Opencode, you can also test the MCP Inspector within them. Just make sure your CAP Application is started, and then restart your harness. Because of the #link-blue("https://cap.cloud.sap/docs/guides/ai/cap-mcp#cdsmcpautowire", "auto-wiring") of MCP Servers to you local configurations, you should be able to see and use the tools.
 
-TODO: Image of Opencode calling a tool
+```bash
+npx @modelcontextprotocol/inspector
+```
+
+#align(center)[
+  #image("files/intro-exercise/mcp-inspector.png", width: 100%)
+]
+
+Local harnesses like ClaudeCode or Opencode can be used as an alternative. Just make sure the CAP Application is started, and then restart the harness to leverage the #link-blue("https://cap.cloud.sap/docs/guides/ai/cap-mcp#cdsmcpautowire", "auto-wiring") of MCP Servers for local development.
+
+#align(center)[
+  #image("files/intro-exercise/opencode-mcp.png", width: 100%)
+]
 
 == Agents
 
-Building an agent is even more optional, as the invokation of the agent requires access to an LLM (except, as always in CAP, a local mock variant, but thats then not really intelligent). You can check the #link-blue("https://cap.cloud.sap/docs/guides/ai/cap-agents#automatic-config", "documentation") about automatic LLM config how you can make the CAP Application aware of your LLM.
+Building an agent is even more optional, as the invokation of the agent requires access to an LLM (except, as always in CAP, a local mock variant, but thats then not really intelligent). The #link-blue("https://cap.cloud.sap/docs/guides/ai/cap-agents#automatic-config", "documentation") about automatic LLM config provides information how the CAP application can be made aware of an LLM.
 
-Start by creating a new empty CAP Service, called the `StudyAdvisoryAgent` and agentify it, as described in the #link-blue("https://cap.cloud.sap/docs/guides/ai/cap-agents", "documentation about agents"). If you now start your application, you can see in the logs that your agent is started and server with the `Agent2Agent`-Protocol. Visit `localhost:4004` and find the preview chat page for your agent. You can now start chatting with your agent. Because of the auto-wiring feature of the agent plugin, your MCP Servers from the last exercise will automatically be connected to your agent.
+```bash
+npm i @cap-js/agents 
+```
+
+Start by creating a new empty CAP Service, called the `StudyAdvisoryAgent` and agentify it, as described in the #link-blue("https://cap.cloud.sap/docs/guides/ai/cap-agents", "documentation about agents"). If the application is now started, the logs show that the agent is started and served under the `Agent2Agent` protocol. Visit `localhost:4004` and find the preview chat page for your agent. The agent is now ready to receive natural language queries. Because of the auto-wiring feature of the agent plugin, the MCP Servers from the last exercise will automatically be connected to your agent, so its expected for the CAP Service to be empty
+
+#align(center)[
+  #image("files/intro-exercise/agent-index.png", width: 90%)
+]
+
+#align(center)[
+  #image("files/intro-exercise/agent-preview.png", width: 90%)
+]
 
 #pagebreak()
 
@@ -352,7 +378,7 @@ This section covers advanced UI enhancements to make your application more polis
 
 == Example UI Screenshots
 
-The following screenshots show what your finished applications could look like:
+The following screenshots show what the finished applications could look like:
 
 *Students App:*
 #align(center)[
