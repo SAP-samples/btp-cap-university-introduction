@@ -105,7 +105,6 @@ Initialize your CAP application with the following command in the terminal in VS
 ```bash
 cds init university --add nodejs
 cd university
-npm i express@4
 npm i
 ```
 
@@ -220,24 +219,6 @@ For defining the UI annotations, you can use the Fiori application modeler plugi
   - `@UI.Facets` specifies the sections of an object page. Facets can contain field groups, line items or charts
   - You can check-out the #link-blue("https://ui5.sap.com/test-resources/sap/fe/core/fpmExplorer/index.html", "Fiori elements showcase") for samples of each annotation
 - To disable the "Go" button in the UI add the "liveMode" setting in each applications `webapp/manifest.json` file. For more information, reference to the #link-blue("https://cap.cloud.sap/docs/advanced/fiori", "generic docs") and the #link-blue("https://github.com/SAP-samples/fiori-elements-feature-showcase?tab=readme-ov-file#enabling-live-mode", "liveMode docs")
-
-== Add Local Launchpad
-
-Add a local launchpad by running the following commands:
-
-```bash
-npm install express@4
-npm add -D cds-launchpad-plugin
-```
-
-Afterwards usually on localhost, port 4004 a "Sandbox Launchpad" appears, via which you can test the UI apps within the SAP Shell.
-
-#align(center)[
-  #image("files/intro-exercise/sandbox-launchpad-link.png", width: 90%)
-]
-#align(center)[
-  #image("files/intro-exercise/sandbox-launchpad.png", width: 90%)
-]
 
 == Add Actions to UI
 
@@ -375,6 +356,24 @@ Start by creating a new empty CAP Service, called the `StudyAdvisoryAgent` and a
 = Optional: Advanced UI Customization
 
 This section covers advanced UI enhancements to make your application more polished and user-friendly.
+
+== Add Local Launchpad
+
+Add a local launchpad by running the following commands:
+
+```bash
+npm install express@4
+npm add -D cds-launchpad-plugin
+```
+
+Afterwards usually on localhost, port 4004 a "Sandbox Launchpad" appears, via which you can test the UI apps within the SAP Shell.
+
+#align(center)[
+  #image("files/intro-exercise/sandbox-launchpad-link.png", width: 90%)
+]
+#align(center)[
+  #image("files/intro-exercise/sandbox-launchpad.png", width: 90%)
+]
 
 == Example UI Screenshots
 
